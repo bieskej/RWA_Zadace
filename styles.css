@@ -1,0 +1,55 @@
+/* Ostali stilovi */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f2f2f2; /* Svetlo siva boja za pozadinu tela */
+}
+
+main {
+    display: flex;
+    flex: 1;
+}
+
+.main-content {
+    flex: 2;
+    padding-right: 20px;
+    background-color: #ccc; /* Siva boja za glavni sadržaj */
+}
+
+aside {
+    flex: 1;
+    background-color: #333; /* Tamno siva boja za aside */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box; /* Da padding ne utiče na širinu elementa */
+}
+
+nav {
+    background-color: #666; /* Siva boja za navigaciju */
+    color: white;
+    padding: 10px;
+}
+
+footer {
+    background-color: #444; /* Tamno siva boja za footer */
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+/* Dodatak za responsivnost */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px; /* Prilagođavanje veličine fonta za mobilne uređaje */
+    }
+
+    main {
+        flex-direction: column; /* Prebacivanje glavnog sadržaja ispod aside-a na mobilnim uređajima */
+    }
+
+    .main-content {
+        padding-right: 0; /* Uklanjanje desnog prostora za glavni sadržaj na mobilnim uređajima */
+    }
+}
