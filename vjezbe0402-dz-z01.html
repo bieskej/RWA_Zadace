@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aritmetička i Geometrijska Sredina</title>
+</head>
+<body>
+
+<script>
+    function aritmetickaSredina(arr) {
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            sum += parseInt(arr[i], 10);
+        }
+        return sum / arr.length;
+    }
+
+    function geometrijskaSredina(arr) {
+        var product = 1;
+        for (var i = 0; i < arr.length; i++) {
+            product *= parseInt(arr[i], 10);
+        }
+        return Math.pow(product, 1 / arr.length);
+    }
+
+    var inputString = prompt("Unesite skup brojeva odvojenih zarezom:");
+    var brojevi = inputString.split(",");
+
+    var aritmeticka = aritmetickaSredina(brojevi);
+    var geometrijska = geometrijskaSredina(brojevi);
+
+    document.write("<p>Uneseni brojevi: " + brojevi.join(", ") + "</p>");
+    document.write("<p>Aritmetička sredina: " + aritmeticka + "</p>");
+    document.write("<p>Geometrijska sredina: " + geometrijska + "</p>");
+</script>
+
+</body>
+</html>
