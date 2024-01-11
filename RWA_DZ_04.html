@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+ <meta charset="UTF-8" />
+ <title>Varijable</title>
+</head>
+<body>
+ <script type="text/javascript">
+document.write('<h2>Zadatak 1:</h2>' + "<br>");
+let i = 19;
+ let Niz1 = 'Niz znakova';
+ let Niz2 = 3.14;
+ let Niz3 = 'U dva<br/>retka';
+ let Logicka = true;
+ document.write(i + "<br>");
+ document.write(Niz1 + "<br>");
+ document.write(Niz2 + "<br>");
+ document.write(Niz3 + "<br>");
+ document.write(Logicka + "<br>");
+ Logicka = false;
+ document.write(Logicka + "<br>");
+ document.write('<h2>Zadatak 2:</h2>' + "<br>");
+ console.log('Parni brojevi i njihovi kvadrati:');
+ document.write("<h3>Parni brojevi i njihovi kvadrati:</h3>");
+ for (let broj = 1; broj <= 100; broj++) {
+   if (broj % 2 === 0) {
+     let kvadrat = broj * broj;
+     console.log(broj + ' * ' + broj + ' = ' + kvadrat);
+     document.write(`${broj} * ${broj} = ${kvadrat}<br>`);
+   }
+ }
+ 
+ function jeProst(br) {
+  if (br <= 1) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(br); i++) {
+    if (br % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+document.write('<h2>Zadatak 3:</h2>' + "<br>");
+
+for (let broj = 1; broj <= 1000; broj++) {
+  if (jeProst(broj)) {
+    console.log(broj);
+    document.write(broj + "<br>");
+  }
+}
+document.write('<h2>Zadatak 4:</h2>' + "<br>");
+console.log("Arrays");
+document.write("<h3>Arrays</h3>");
+let polje = new Array(1, 2, 3, 4, 7, 8, 5, 6, 9, 55, 12, 4, 85);
+document.write('Polje: ' + polje + '<br>');
+
+const duzina = polje.length;
+document.write('Duzina: ' + duzina + '<br>');
+
+polje.sort(function(a, b) {
+  return a - b;
+});
+document.write('Sortirano rastuće: ' + polje + '<br>');
+
+polje.sort(function(a, b) {
+  return b - a;
+});
+document.write('Sortirano opadajuće: ' + polje + '<br>');
+
+polje.pop();
+document.write('Polje nakon brisanja zadnjeg elementa: ' + polje + '<br>');
+
+polje.push(19, 22);
+document.write('Polje nakon dodavanja elemenata 19 i 22: ' + polje + '<br>');
+
+let polje2 = ['Banana', 'Orange', 'Apple', 'Mango'];
+
+let polje_final = polje2.concat(polje);
+document.write('Polje_final: ' + polje_final + '<br>');
+document.write('<h2>Zadatak 5:</h2>' + "<br>");
+let osoba1 = {
+  firstName: "Marko",
+  lastName: "Markic",
+  age: 40,
+  eyeColor: "black"
+};
+
+let osoba2 = {
+  firstName: "Ana",
+  lastName: "Anic",
+  age: 30,
+  eyeColor: "blue"
+};
+
+let osoba3 = {
+  firstName: "Ivo",
+  lastName: "Ivić",
+  age: 25,
+  eyeColor: "brown"
+};
+
+let osobe = [osoba1, osoba2, osoba3];
+
+for (let index in osobe) {
+  document.write("<h3>Osoba " + index + "</h3>");
+  for (let key in osobe[index]) {
+    document.write(key + ": " + osobe[index][key] + "<br>");
+  }
+  document.write("<br>");
+}
+document.write('<h2>Zadatak 6:</h2>' + "<br>");
+let pas = {
+  ime: "Reks",
+  godine: 2
+};
+
+pas.zvuk = function() {
+  return "AV AV!";
+};
+
+document.write("Ime psa: " + pas.ime + "<br>");
+document.write("Godine psa: " + pas.godine + "<br>");
+document.write("Zvuk koji pas proizvodi: " + pas.zvuk() + "<br>");
+
+document.write('<h2>Zadatak 7:</h2>' + "<br>");
+let provjera = function(x) {
+  if (typeof x === 'number') {
+    return x * x;
+  } else {
+    return "Obavijest o pogrešci: Ulaz nije broj!";
+  }
+};
+
+document.write(provjera(5) + "<br>");
+document.write(provjera('test') + "<br>");
+
+document.write('<h2>Zadatak 7:</h2>' + "<br>");
+function filtrirajNiz(arr) {
+  let novoPolje = arr.filter(function(element) {
+    return element.toUpperCase() === element || element.length >= 5;
+  });
+
+  document.write("Novo polje: " + novoPolje + "<br>");
+  return novoPolje;
+}
+
+var arr = ['Ovo', 'je', 'My', 'prvi', 'komad', 'OF', 'JAVASCRIPT', 'koda', 'Koji', ', ', 'je', 'proradio'];
+filtrirajNiz(arr);
+
+document.write('<h2>Zadatak 8:</h2>' + "<br>");
+function pronadiSavrseneBrojeve(broj) {
+  for (let i = 1; i <= broj; i++) {
+    let sum = 0;
+    for (let j = 1; j < i; j++) {
+      if (i % j === 0) {
+        sum += j;
+      }
+    }
+    if (sum === i) {
+      console.log(i);
+    }
+  }
+}
+
+document.write('<h2>Zadatak 9:</h2>' + "<br>");
+let ulazniBroj = 10000;
+console.log(`Savršeni brojevi od 1 do ${ulazniBroj}:`);
+pronadiSavrseneBrojeve(ulazniBroj);
+
+function generirajRandomBrojeve(broj1, broj2) {
+  for (let i = 0; i < 5; i++) {
+    let randomBroj = Math.floor(Math.random() * (broj2 - broj1 + 1)) + broj1;
+    console.log(randomBroj);
+  }
+}
+
+document.write('<h2>Zadatak 10:</h2>' + "<br>");
+let prviBroj = 10;
+let drugiBroj = 20;
+
+console.log(`Pet nasumičnih brojeva između ${prviBroj} i ${drugiBroj}:`);
+generirajRandomBrojeve(prviBroj, drugiBroj);
+
+document.write('<h2>Zadatak 11:</h2>' + "<br>");
+const tempDay = ['2023-11-29', -1, 0, -0.5, 0.5, 0, 1.2, 1.8, 2, 3, 4, 6, 9, 12, 7, 6, 6, 8, 5, 4, 2, 3, 2, 1, 0];
+
+function analizirajTemperaturu(tempDay) {
+  const datum = tempDay[0];
+  const temperature = tempDay.slice(1);
+  
+  const najmanjaTemp = Math.min(...temperature);
+  const najvecaTemp = Math.max(...temperature);
+  
+  const suma = temperature.reduce((acc, val) => acc + val, 0);
+  const prosjecnaTemp = suma / temperature.length;
+
+  console.log(`Datum: ${datum}`);
+  console.log(`Najmanja temperatura: ${najmanjaTemp}`);
+  console.log(`Najveća temperatura: ${najvecaTemp}`);
+  console.log(`Prosječna temperatura: ${prosjecnaTemp.toFixed(2)}`);
+}
+
+analizirajTemperaturu(tempDay);
+
+</script>
+</body>
+</html>
